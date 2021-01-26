@@ -23,8 +23,16 @@ app.get('/users', function(req,res){
       message: 'successfully got users.',
       users: mockUserData
   })
+}) // just made first endpoint! this function will respond to a GET request at http://localhost:8000/users with a JSON file
+
+app.get('/users/:id',function(req,res){
+  console.log(req.params.id)
+  res.json({
+      success: true,
+      message: 'got one user',
+      user: req.params.id
+  })
 })
 
 app.listen(8000,function(){console.log("server is running")})
  // this method starts up the server locally on the port that is the first argument - in this case http://localhost:8000
- 
